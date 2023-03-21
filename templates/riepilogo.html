@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <style>
+            img {
+                width: 20%;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        Il tuo IMC è di {{imc}}
+        {%if imc > 25%}
+            <p>Sei <b>Sovrappeso</b></p>
+            <img src="{{url_for('static', filename='img/sovrappeso.jpg')}}">
+        {%elif imc < 24.9 and imc > 18.5%}
+            <p>Sei <b>Normopeso</b></p>
+            <img src="{{url_for('static', filename='img/normopeso.jpg')}}">
+        {%elif imc < 18.5%}
+            <p>Sei <b>Sottopeso</b></p>
+            <img src="{{url_for('static', filename='img/sottopeso.jpg')}}">
+        {%endif%}
+    </body>
+</html>
